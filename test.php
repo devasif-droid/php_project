@@ -23,7 +23,7 @@ $dbname = "new_form";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-    
+        
 }
 
 
@@ -304,8 +304,6 @@ if (isset($_POST['current_password']) && isset($_POST['new_password']) && isset(
             color: white;
             text-decoration: none;
         }
-
-
 
 
 
