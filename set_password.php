@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli('localhost', 'root', '', 'reset_pass');
+$conn = new mysqli('localhost', 'root', '', 'new_form');
 
 echo "Token from POST: " . $_POST['token'] . "<br>";
 
@@ -18,7 +18,7 @@ echo "Token in query: $token<br>";
 
 if ($stmt->num_rows === 1) {
     // Update user's password
-    $stmt = $conn->prepare("UPDATE users SET password = ? WHERE email = ?");
+    $stmt = $conn->prepare("UPDATE students SET password = ? WHERE email = ?");
     $stmt->bind_param("ss", $newPassword, $email);
     $stmt->execute();
 

@@ -4,12 +4,12 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-$conn = new mysqli('localhost', 'root', '', 'reset_pass');
+$conn = new mysqli('localhost', 'root', '', 'new_form');
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
 $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 
-$stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+$stmt = $conn->prepare("SELECT id FROM students WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $stmt->store_result();
